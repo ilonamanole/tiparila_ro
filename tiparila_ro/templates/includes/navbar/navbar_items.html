@@ -1,0 +1,80 @@
+{% macro render_item(item, submenu=False, parent=False) %}
+{% if item.child_items %}
+
+{% if parent %}
+<li class="nav-item dropdown {% if submenu %} dropdown-submenu {% endif %}">
+	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		{{ item.label }}
+	</a>
+  	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		{% for child in item.child_items %}
+			{{ render_item(child, True) }}
+	  {% endfor %}
+	</ul>
+</li>
+{% else %}
+<li class="dropdown {% if submenu %} dropdown-submenu {% endif %}">
+	<a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown" role="button"
+		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		{{ item.label }}
+	</a>
+	<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+		{% for child in item.child_items %}
+			{{ render_item(child, True) }}
+	{% endfor %}
+	</ul>
+</li>
+{% endif %}
+
+{% else %}
+
+{% if parent %}
+<li class="nav-item">
+	<a class="nav-link" href="{{ (item.url or '')|abs_url }}"
+		{{ item.target or ''}}>
+		{{ item.label }}
+	</a>
+</li>
+{% else %}
+<a class="dropdown-item" href="{{ (item.url or '') | abs_url }}"
+	{{ item.target or '' }}>
+	{{ item.label }}
+</a>
+{% endif %}
+
+{% endif %}
+{% endmacro %}
+
+{% if top_bar_items -%}
+<ul class="navbar-nav mr-auto navbar-pages">
+	{%- for item in top_bar_items -%}
+		{% if not item.parent_label and not item.right -%}
+			{{ render_item(item, parent=True) }}
+		{%- endif -%}
+	{%- endfor %}
+</ul>
+{%- endif %}
+<ul class="navbar-nav ml-auto">
+	{%- for item in top_bar_items -%}
+		{% if not item.parent_label and item.right -%}
+			{{ render_item(item, parent=True) }}
+		{%- endif -%}
+	{%- endfor %}
+	{% if not only_static %}
+		{% block navbar_right_extension %}{% endblock %}
+		<li class="shopping-cart cart-icon hidden">
+			<a href="/cart" class="nav-link">
+				<i class="fa fa-shopping-cart"></i>
+				<span class="badge badge-primary" id="cart-count"></span>
+			</a>
+		</li>
+	{% endif %}
+	{% include "templates/includes/navbar/navbar_search.html" %}
+	{% include "templates/includes/navbar/navbar_login.html" %}
+</ul>
+<ul class="navbar-nav navbar-lang">
+	<li><a href="#" class="lang active lang-en">en</a></li>
+	<li><a href="#" class="lang lang-ro">ro</a></li>
+	<li><a href="#" class="lang lang-hu">hu</a></li>
+</ul>

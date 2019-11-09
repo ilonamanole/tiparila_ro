@@ -8,6 +8,7 @@ function addUrlParam(url, key, value) {
     }
     return result;
 }
+
 $(document).ready(function(){
     //current page behavior on selecting lang
     $(".navbar-lang").find("a").each(function(){

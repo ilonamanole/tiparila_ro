@@ -1,0 +1,32 @@
+.hero-section {
+    margin: 0 0 40px;
+    position: relative;
+    background: #EFF4F7;
+    height: 500px;
+    overflow: hidden;
+    text-align: right;
+}
+
+.hero-image {
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: cover;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 2px;
+    background: -moz-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(27%, #EFF4F7), color-stop(63%,rgba(239,244,247,1)));
+    background: -webkit-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
+    background: -o-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
+    background: -ms-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
+    background: linear-gradient(to right, rgba(239,244,247,0) 27%, #EFF4F7 63%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00eff4f7', endColorstr='#eff4f7',GradientType=1 );
+}

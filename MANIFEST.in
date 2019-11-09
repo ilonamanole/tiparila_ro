@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include tiparila_ro *.css
+recursive-include tiparila_ro *.csv
+recursive-include tiparila_ro *.html
+recursive-include tiparila_ro *.ico
+recursive-include tiparila_ro *.js
+recursive-include tiparila_ro *.json
+recursive-include tiparila_ro *.md
+recursive-include tiparila_ro *.png
+recursive-include tiparila_ro *.py
+recursive-include tiparila_ro *.svg
+recursive-include tiparila_ro *.txt
+recursive-exclude tiparila_ro *.pyc

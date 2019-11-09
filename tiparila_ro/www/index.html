@@ -1,0 +1,88 @@
+{% extends "frappe/templates/web.html" %}
+
+{% from "erpnext/templates/includes/macros.html" import render_homepage_section %}
+
+{% block title %}Tiparila{% endblock %}
+
+
+{% block content %}
+
+<section class="hero-section border-bottom">
+    <div class="{%if homepage.hero_image%}hero-image{%endif%}" {%if homepage.hero_image%}
+         style="background-image:url({{ homepage.hero_image }}){%endif%}">
+    </div>
+    <div class="overlay">
+        <div class="container py-5">
+            <h1 class="d-none d-sm-block display-4">{{ homepage.tag_line }}</h1>
+            <h1 class="d-block d-sm-none">{{ homepage.tag_line }}</h1>
+            <h2 class="d-none d-sm-block">{{ homepage.description }}</h2>
+            <h3 class="d-block d-sm-none">{{ homepage.description }}</h3>
+        </div>
+
+        <div class="container">
+            <p class="mt-4">
+                <a class="btn btn-primary btn-md" href="/contact">Get a Quote</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="container my-5 with-sm-padding">
+    <div class="row">
+        {% for section in homepage_sections %}
+        {{ render_homepage_section(section) }}
+        {% endfor %}
+    </div>
+</section>
+{% if homepage.products %}
+<section class="container section-products my-5 with-sm-padding">
+    <div class="row">
+        {% for item in homepage.products %}
+        <div class="col-md-6 mb-6">
+            <div class="card h-100 justify-content-between w-effect">
+                <a href="{{ item.route }}">
+                    <div class="website-image-lazy" data-class="card-img-top"
+                         data-src="{{ item.image }}" data-alt="{{ item.item_name }}"></div>
+
+                    <div class="card-body flex-grow-0">
+                        <h5 class="card-title">{{ item.item_name }}</h5>
+                        <p>{{ item.description }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if blogs %}
+<section class="light-bkg with-padding">
+    <div class="container">
+        <div class="section-header">
+            <h2>{{ _('Check our Works') }}</h2>
+            <p>{{ _('See what we are good at & book us') }}</p>
+        </div>
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-md-4 mb-4">
+                <div class="card-body blog-card-body card-img">
+                    <a href="{{ blog.route }}" class="card-link">
+                        <img src="{{ blog.cover_image }}" alt="{{ blog.title }}"/>
+                    </a>
+                </div>
+                <div class="card-body blog-card-body">
+                    <div class="blog-card-body-inner">
+                        <a href="{{ blog.route }}" class="card-link"><h5 class="card-title">{{ blog.title }}</h5></a>
+                        <!--                        <p class="card-subtitle mb-2 text-muted">{{ _('By {0}').format(blog.blogger) }}</p>-->
+                        <p class="card-text">{{ blog.blog_intro }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
