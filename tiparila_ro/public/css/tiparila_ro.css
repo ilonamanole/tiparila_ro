@@ -6,8 +6,8 @@ light gray #f4ece9;
 green #43b748
 dark blue #39767f;
 cream
-
 */
+
 .btn:focus, button:focus,
 .btn:active, button:active { border: none !important; background:transparent !important;box-shadow:none !important;}
 body {
@@ -281,7 +281,6 @@ a div {
 }
 
 /* About */
-
 .about-content h3 {
     padding: 30px 0;
 }
