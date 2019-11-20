@@ -16,9 +16,11 @@ $(document).ready(function(){
             e.preventDefault();
             var curr_lang = $(this).text();
             var curr_url = window.location.href;
-            localStorage.setItem("_lang", curr_lang);
-            curr_url = addUrlParam(curr_url,'_lang', curr_lang);
-            window.location.href = curr_url;
+            if (curr_url.indexOf('_lang='+curr_lang) <0) {
+                localStorage.setItem("_lang", curr_lang);
+                curr_url = addUrlParam(curr_url,'_lang', curr_lang);
+                window.location.href = curr_url;
+            }
         });
     });
 

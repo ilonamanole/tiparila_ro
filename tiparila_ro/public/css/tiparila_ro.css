@@ -80,6 +80,11 @@ h5 {
     padding-left: 0;
 }
 
+.btn-outline-secondary.btn-next,
+.btn-outline-secondary.btn-prev {
+    text-decoration: none;
+}
+
 .btn-link:hover,
 .btn-outline-secondary:not(.cart-btn):hover {
     background: none;

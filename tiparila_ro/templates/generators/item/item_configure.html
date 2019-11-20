@@ -5,7 +5,7 @@
 	{% if cart_settings.show_configure_button | int %}
 	<button class="btn btn-primary btn-configure"
 		data-item-code="{{ doc.name }}"
-		data-item-name="{{ doc.item_name }}"
+		data-item-name="{{ _(doc.item_name) }}"
 	>
 		{{ _('Configure') }}
 	</button>
