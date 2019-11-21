@@ -2,26 +2,23 @@
 	<section class="footer-links">
 		<div class="container">
 			<div class="row footer-bottom-line mt-5">
-				<div class="text-muted small col-sm-4 col-12">
+				<div class="text-muted small col-sm-7 col-12">
 					{% if copyright %}
-						&copy; {{ copyright }}
+						&copy; {{ _(copyright) }}
 					{% endif %}
 					{% if footer_address %}
 						{% if copyright %}<br>{% endif %}
-						{{ footer_address }}
-						<br />
-						<p class="footer-group-label">Connect with us!</p>
-						<a href="https://www.facebook.com/Tiparila/" target="_blank"><i class="fa fa-facebook"></i></a>
+						{{ _(footer_address) }}
 					{% endif %}
 				</div>
-				<div class="col-sm-4 small text-left">
+				<div class="col-sm-3 small text-left">
 					{% if footer_items -%}
 					<div class="row">
 						{% include "templates/includes/footer/footer_items.html" %}
 					</div>
 					{% endif %}
 				</div>
-				<div class="col-sm-4 small text-right">
+				<div class="col-sm-2 small text-right">
 					{% block extension %}
 						{% include "templates/includes/footer/footer_extension.html" %}
 					{% endblock %}

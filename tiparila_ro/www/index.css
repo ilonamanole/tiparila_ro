@@ -10,7 +10,7 @@
 .hero-image {
     background-repeat: no-repeat;
     background-position: center left;
-    background-size: cover;
+    background-size: 100%;
     height: 100%;
 }
 
@@ -22,11 +22,11 @@
     left: 0;
     height: 100%;
     border-radius: 2px;
-    background: -moz-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(27%, #EFF4F7), color-stop(63%,rgba(239,244,247,1)));
-    background: -webkit-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
-    background: -o-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
-    background: -ms-linear-gradient(left, rgba(239,244,247,0) 27%, #EFF4F7 63%);
-    background: linear-gradient(to right, rgba(239,244,247,0) 27%, #EFF4F7 63%);
+    background: -moz-linear-gradient(left, rgba(239,244,247,0) 61%, #EFF4F7 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(61%, #EFF4F7), color-stop(100%,rgba(239,244,247,1)));
+    background: -webkit-linear-gradient(left, rgba(239,244,247,0) 61%, #EFF4F7 100%);
+    background: -o-linear-gradient(left, rgba(239,244,247,0) 61%, #EFF4F7 100%);
+    background: -ms-linear-gradient(left, rgba(239,244,247,0) 61%, #EFF4F7 100%);
+    background: linear-gradient(to right, rgba(239,244,247,0) 61%, #EFF4F7 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00eff4f7', endColorstr='#eff4f7',GradientType=1 );
 }
