@@ -4,3 +4,4 @@
 *.swp
 tags
 tiparila_ro/docs/current
+*__pycache__/

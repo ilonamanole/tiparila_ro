@@ -1,0 +1,34 @@
+{% if slideshow %}
+{{ slideshow_header or '' }}
+
+<div id="the-carousel" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner row">
+        {% for slide in slides %}
+        <div class="{% if slide.idx==1 %}active{% endif %} item col-md-4">
+            <a href="{{ slide.image }}" class="gallery-selector" data-sub-html="#caption{{ slide.idx }}"
+			data-lazy="{{ slide.image }}">
+                <img class="d-block w-100 lazy" data-src="{{ slide.image }}"/>
+            </a>
+
+            <div class="carousel-caption d-none" id="caption{{ slide.idx }}">
+                {% if slide.heading %}<h4>{{ slide.heading }}</h4>{% endif %}
+                {% if slide.description %}<p>{{ slide.description }}</p>{% endif %}
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<script>
+	frappe.ready(function () {
+		$(".carousel-inner").lightGallery({
+            selector: '.gallery-selector',
+            subHtmlSelectorRelative: true,
+            exThumbImage: 'data-lazy'
+        });
+	});
+</script>
+{% endif %}
